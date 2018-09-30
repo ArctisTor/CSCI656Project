@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dede35f1-e205-4db9-b83a-ef34bedbb02c" name="Default Changelist" comment="Server runs.">
-      <change afterPath="$PROJECT_DIR$/server/security/decryptor-lib.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/security/encryptor-lib.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/security/encryptor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/security/salt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/model/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -46,7 +42,7 @@
           <entry key="LICENSE" value="1" />
           <entry key="bowerrc" value="1" />
           <entry key="gitignore" value="4" />
-          <entry key="js" value="7" />
+          <entry key="js" value="8" />
           <entry key="jshintrc" value="3" />
           <entry key="json" value="10" />
           <entry key="npmrc" value="2" />
@@ -57,14 +53,14 @@
         <counts>
           <entry key="JSHint" value="3" />
           <entry key="JSON" value="11" />
-          <entry key="JavaScript" value="7" />
+          <entry key="JavaScript" value="8" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="18" />
-          <entry key="js" value="1404" />
+          <entry key="js" value="2267" />
           <entry key="json" value="220" />
           <entry key="npmrc" value="7" />
           <entry key="salt" value="8" />
@@ -74,7 +70,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="220" />
-          <entry key="JavaScript" value="1404" />
+          <entry key="JavaScript" value="2267" />
           <entry key="PLAIN_TEXT" value="50" />
         </counts>
       </usages-collector>
@@ -116,19 +112,32 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/security/decryptor-lib.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/security/encryptor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+            <state relative-caret-position="85">
+              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/model/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/security/encryptor-lib.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
@@ -165,10 +174,11 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/package.json" />
-        <option value="$PROJECT_DIR$/server/security/decryptor-lib.js" />
-        <option value="$PROJECT_DIR$/server/security/encryptor.js" />
         <option value="$PROJECT_DIR$/server/security/salt" />
         <option value="$PROJECT_DIR$/server/security/encryptor-lib.js" />
+        <option value="$PROJECT_DIR$/server/security/decryptor-lib.js" />
+        <option value="$PROJECT_DIR$/server/security/encryptor.js" />
+        <option value="$PROJECT_DIR$/server/model/user.js" />
       </list>
     </option>
   </component>
@@ -217,12 +227,6 @@
               <item name="CSCI656Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="CSCI656Project" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CSCI656Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSCI656Project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -278,7 +282,7 @@
       <workItem from="1537825617680" duration="15000" />
       <workItem from="1537825664277" duration="523000" />
       <workItem from="1537826210273" duration="6786000" />
-      <workItem from="1538331255484" duration="946000" />
+      <workItem from="1538331255484" duration="2440000" />
     </task>
     <task id="LOCAL-00001" summary="Server runs.">
       <created>1537830234747</created>
@@ -291,12 +295,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10360000" />
+    <option name="totallyTimeSpent" value="11854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="6" width="1796" height="1000" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19340159" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19340159" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -308,7 +313,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298731" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49943116" visible="true" weight="0.3298731" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49943116" visible="true" weight="0.3298731" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005688" side_tool="true" weight="0.3298731" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -375,9 +380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/security/decryptor-lib.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -402,17 +404,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/security/encryptor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/security/encryptor-lib.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/security/decryptor-lib.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/security/encryptor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/model/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
