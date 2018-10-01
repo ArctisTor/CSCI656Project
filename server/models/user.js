@@ -5,7 +5,7 @@ let Schema = mongoose.Schema;
 let requestSchema = new Schema(
     {
         username: String,
-        pasword: String,
+        password: String,
         channels: [String]
     },
     {
