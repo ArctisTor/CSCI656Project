@@ -38,7 +38,7 @@ exports.migrate = function (callback) {
                 }
 
                 if (!migrationTask.includes(entry)) {
-                    let migrationInst = require('./scripts'+entry);
+                    let migrationInst = require('./scripts/'+entry);
                     migrationInst.migrate(fileCallBack);
                 } else {
                     fileCallBack();

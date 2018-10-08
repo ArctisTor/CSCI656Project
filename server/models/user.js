@@ -14,4 +14,4 @@ let requestSchema = new Schema(
 
 );
 
-model.exports = mongoose.model('User', requestSchema, 'users');
+module.exports = mongoose.model('User', requestSchema, 'users');

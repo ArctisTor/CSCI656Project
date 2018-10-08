@@ -2,5 +2,15 @@
   "server" : {
     "protocol" : "http",
     "port" : "8100"
+  },
+  "mongo" : {
+    "uri" : "mongodb://localhost:27017/chat_web_app",
+    "user" : "",
+    "pass" : ""
+  },
+  "mongo-test" : {
+    "uri" : "mongodb://localhost:27017/chat_web_app_test",
+    "user" : "",
+    "pass" : ""
   }
 }

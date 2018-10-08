@@ -1,5 +1,5 @@
 const migration = require('../../models/migration'),
-    User = requie('../../models/user'),
+    User = require('../../models/user'),
     encrypt = require('../../security/encryptor-lib')
     async = require('async'),
     path = require('path');
