@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dede35f1-e205-4db9-b83a-ef34bedbb02c" name="Default Changelist" comment="Server runs.">
-      <change afterPath="$PROJECT_DIR$/server/controller/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/authorizationToken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/user-routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/scripts/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/scripts/controllers/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/scripts/services/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/routes/main-router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config/appconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/config/appconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/migration/migrationRunner.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/migration/migrationRunner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/migration/scripts/001-insert-admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/migration/scripts/001-insert-admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/web.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/web.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/user-routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/user-routes.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,16 +35,17 @@
     <session id="-1476861624">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -52,26 +53,29 @@
           <entry key="LICENSE" value="1" />
           <entry key="bowerrc" value="1" />
           <entry key="gitignore" value="4" />
-          <entry key="js" value="22" />
+          <entry key="html" value="1" />
+          <entry key="js" value="30" />
           <entry key="jshintrc" value="3" />
-          <entry key="json" value="12" />
+          <entry key="json" value="15" />
           <entry key="npmrc" value="2" />
           <entry key="salt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="HTML" value="1" />
           <entry key="JSHint" value="3" />
-          <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="22" />
+          <entry key="JSON" value="16" />
+          <entry key="JavaScript" value="30" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="18" />
-          <entry key="js" value="5392" />
-          <entry key="json" value="410" />
+          <entry key="html" value="310" />
+          <entry key="js" value="6828" />
+          <entry key="json" value="635" />
           <entry key="npmrc" value="7" />
           <entry key="salt" value="8" />
           <entry key="txt" value="17" />
@@ -79,8 +83,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="410" />
-          <entry key="JavaScript" value="5392" />
+          <entry key="HTML" value="310" />
+          <entry key="JSON" value="635" />
+          <entry key="JavaScript" value="6828" />
           <entry key="PLAIN_TEXT" value="50" />
         </counts>
       </usages-collector>
@@ -92,21 +97,75 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/models/authorizationToken.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/models/user.js">
+        <entry file="file://$PROJECT_DIR$/app/views/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+            <state relative-caret-position="238">
+              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="73" selection-start-line="3" selection-start-column="73" selection-end-line="3" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/services/api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="37" lean-forward="true" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/routes/main-router.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/routes/user-routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/controller/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -116,6 +175,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -136,7 +196,6 @@
         <option value="$PROJECT_DIR$/server/.gitignore" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/package.json" />
         <option value="$PROJECT_DIR$/server/security/salt" />
         <option value="$PROJECT_DIR$/server/security/encryptor-lib.js" />
         <option value="$PROJECT_DIR$/server/security/decryptor-lib.js" />
@@ -148,9 +207,16 @@
         <option value="$PROJECT_DIR$/server/migration/migrationRunner.js" />
         <option value="$PROJECT_DIR$/server/migration/scripts/001-insert-admin.js" />
         <option value="$PROJECT_DIR$/server/models/user.js" />
-        <option value="$PROJECT_DIR$/server/routes/user-routes.js" />
-        <option value="$PROJECT_DIR$/server/controller/user.js" />
         <option value="$PROJECT_DIR$/server/models/authorizationToken.js" />
+        <option value="$PROJECT_DIR$/app/package.json" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/views/login.html" />
+        <option value="$PROJECT_DIR$/server/api/sh-rest.js" />
+        <option value="$PROJECT_DIR$/server/routes/main-router.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/login.js" />
+        <option value="$PROJECT_DIR$/server/controller/user.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/api.js" />
+        <option value="$PROJECT_DIR$/server/routes/user-routes.js" />
       </list>
     </option>
   </component>
@@ -161,6 +227,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/app/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
     <handled-path value="$PROJECT_DIR$/server/node_modules" />
   </component>
@@ -199,6 +266,18 @@
             <path>
               <item name="CSCI656Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="CSCI656Project" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSCI656Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSCI656Project" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CSCI656Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CSCI656Project" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -206,12 +285,6 @@
               <item name="CSCI656Project" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CSCI656Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CSCI656Project" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CSCI656Project" type="b2602c69:ProjectViewProjectNode" />
@@ -226,6 +299,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -275,7 +349,8 @@
       <workItem from="1538331255484" duration="3237000" />
       <workItem from="1538429858235" duration="1467000" />
       <workItem from="1539016007021" duration="42000" />
-      <workItem from="1539016082239" duration="4225000" />
+      <workItem from="1539016082239" duration="4634000" />
+      <workItem from="1539533532221" duration="5680000" />
     </task>
     <task id="LOCAL-00001" summary="Server runs.">
       <created>1537830234747</created>
@@ -288,12 +363,32 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18385000" />
+    <option name="totallyTimeSpent" value="24474000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="32" y="7" width="1796" height="999" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19340159" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49943116" weight="0.3298731" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33025405" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39907727" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298731" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49943116" weight="0.3290993" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005688" side_tool="true" weight="0.3298731" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19340159" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -306,13 +401,13 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298731" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49943116" weight="0.3298731" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49943116" weight="0.3290993" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005688" side_tool="true" weight="0.3298731" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -340,7 +435,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/web.js</url>
           <line>59</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
@@ -360,9 +454,6 @@
     <entry file="file://$PROJECT_DIR$/web-server/server.js" />
     <entry file="file://$PROJECT_DIR$/web-server/.npmrc" />
     <entry file="file://$PROJECT_DIR$/.npmrc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/package.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -414,13 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/migration/scripts/001-insert-admin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -461,13 +545,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes/user-routes.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controller/user.js">
+    <entry file="file://$PROJECT_DIR$/server/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="17">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/authorizationToken.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -478,10 +573,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/authorizationToken.js">
+    <entry file="file://$PROJECT_DIR$/server/api/sh-rest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="73" selection-start-line="3" selection-start-column="73" selection-end-line="3" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="2" lean-forward="true" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/controller/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="37" lean-forward="true" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/main-router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/routes/user-routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
         </state>
       </provider>
     </entry>

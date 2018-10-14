@@ -14,3 +14,7 @@ exports.getUser = function(req, res, next) {
 
     });
 }
+
+exports.login = function(req, res, next) {
+
+}
