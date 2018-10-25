@@ -5,9 +5,8 @@ const express = require('express'),
     compression = require('compression'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    fs = require('fs'),
+    log = require('./logs/log'),
     http = require('http'),
-    https = require('https'),
     decryptor = require('./security/decryptor-lib'),
     migration = require('./migration/migrationRunner')
 config = require('./config');
@@ -79,14 +78,14 @@ module.exports.start = function (callback) {
 
             // serve web app
             app.use(express.static(__dirname + '/..' + '/public'));
-            // app.use('/api/v1', require('./routes/'));
+            app.use('/api', require('./routes/main-router'));
 
 
             /**
              * Error Handler.
              */
             app.use((err, req, res, next) => {
-                log.error(err);
+                console.error(err);
                 res.status(err.status || 500).json({ message: err.message })
             });
 

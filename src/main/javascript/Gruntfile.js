@@ -144,7 +144,7 @@ module.exports = function (grunt) {
         //     },
         //     dist: {
         //         src: '<%= paths.app %>/styles/main.scss',
-        //         dest: '.tmp/styles/main.css'
+        //         dest: '.tmp/styles/main.scss'
         //     }
         // },
 

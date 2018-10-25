@@ -7,7 +7,7 @@ var config = exports,
 config.get = function(callback) {
 
     if (lastConfig) {
-
+        callback(null, JSON.parse(lastConfig));
     } else {
         fs.readFile(__dirname + '/config/appconfig.json', function(err, data) {
             lastConfig = data;

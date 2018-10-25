@@ -79,7 +79,7 @@ module.exports.start = function (callback) {
 
             // serve web app
             app.use(express.static(__dirname + '/..' + '/public'));
-            // app.use('/api/v1', require('./routes/'));
+            app.use('/api', require('./routes/main-router'));
 
 
             /**

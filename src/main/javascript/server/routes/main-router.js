@@ -4,4 +4,6 @@ const express = require('express'),
 var userRouter = require('./user-routes');
 
 
-router.use('/user', userRouter);
+router.use('/', userRouter);
+
+module.exports = router;
