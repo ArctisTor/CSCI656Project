@@ -60,6 +60,92 @@
 				"description": "Register"
 			},
 			"response": []
+		},
+		{
+			"name": "AddMessage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userName\" : \"test-user\",\n\t\"message\" : \"This is a test of the first message to be sent!\",\n\t\"channels\" : [\"general\", \"quotes\"]\n}"
+				},
+				"url": {
+					"raw": "{{addMessage}}",
+					"host": [
+						"{{addMessage}}"
+					]
+				},
+				"description": "Add Message"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllMessages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{getAllMessages}}",
+					"host": [
+						"{{getAllMessages}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUnread",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{getUnreadMessages}}",
+					"host": [
+						"{{getUnreadMessages}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getByChannel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{getByChannel}}?channel=general",
+					"host": [
+						"{{getByChannel}}"
+					],
+					"query": [
+						{
+							"key": "channel",
+							"value": "general"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
