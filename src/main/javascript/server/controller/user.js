@@ -49,7 +49,10 @@ exports.login = function(req, res) {
             if (err) {
               res.status(500).send(err);
             } else {
-              res.json(t.tokenKey);
+              res.json({
+                user : user,
+                tokenKey: t.tokenKey
+              });
             }
 
           });
@@ -87,7 +90,10 @@ exports.register = function (req, res) {
               if (err) {
                 res.status(500).send(err);
               } else {
-                res.json(t.tokenKey);
+                res.json({
+                  user : user,
+                  tokenKey: t.tokenKey
+                });
               }
 
             });
