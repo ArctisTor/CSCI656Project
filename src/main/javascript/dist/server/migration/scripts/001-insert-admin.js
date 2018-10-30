@@ -15,7 +15,7 @@ exports.migrate = function(callback) {
             post = new User(
                 {
                     username: 'server-admin',
-                    password: encrypt.encrypt('pa$$w0rd!@#$'),
+                    password: encrypt.encrypt('pa$$w0rdCW@L'),
                     channels: ['general']
                 });
             post.save(asyncCallback);

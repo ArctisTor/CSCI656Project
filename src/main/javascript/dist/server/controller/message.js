@@ -72,6 +72,27 @@ exports.getUnread = function (req, res) {
                     }
 
                 });
+
+                // async.waterfall(
+                //     [
+                //         (callback) => {
+                //             messages.forEach(function(message) {
+                //                 message.read = true;
+                //                 message.save((err) => {
+                //                     if (err) {
+                //                         return res.status(500).send(err);
+                //                     }
+                //                 });
+                //             });
+                //             callback(null);
+                //         }
+                //     ], (err) => {
+                //     if (err) {
+                //         return res.status(500).send(err);
+                //     } else {
+                //         res.json(messages);
+                //     }
+                // });
             }
         });
 };

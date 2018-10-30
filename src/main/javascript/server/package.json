@@ -15,6 +15,7 @@
     "pm2": "2.5.0",
     "request": "2.81.0",
     "template-tal": "0.1.5",
+    "uuid" : "^3.3.2",
     "winston": "2.3.1",
     "winston-logrotate": "1.0.1",
     "xml-crypto": "0.8.5",

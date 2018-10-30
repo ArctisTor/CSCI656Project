@@ -1,4 +1,6 @@
 const User = require('../models/user'),
+    tokenAuth = require('../models/authorizationToken'),
+    uuid = require('uuid'),
     encryptor = require('../security/encryptor-lib');
 
 exports.getUser = function(req, res, next) {
@@ -37,7 +39,20 @@ exports.login = function(req, res) {
         } else if (!user){
             res.status(404).send('Invaild username/password combination');
         }  else {
-            res.json(user);
+          let token = new tokenAuth({
+            "userId" : user._id,
+            "tokenKey" : uuid().replace(/-/g, '')
+          });
+
+          token.save((err, t) => {
+
+            if (err) {
+              res.status(500).send(err);
+            } else {
+              res.json(t.tokenKey);
+            }
+
+          });
         }
 
     });
@@ -61,10 +76,38 @@ exports.register = function (req, res) {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.json(user);
+
+            let token = new tokenAuth({
+              "userId" : user._id,
+              "tokenKey" : uuid().replace(/-/g, '')
+            });
+
+            token.save((err, t) => {
+
+              if (err) {
+                res.status(500).send(err);
+              } else {
+                res.json(t.tokenKey);
+              }
+
+            });
         }
 
     });
+};
+
+exports.logout = function(req, res) {
+
+  tokenAuth.findOneAndRemove({'tokenKey' : req.body.tokenKey}, (err, token) => {
+
+    if (err) {
+      return res(new Error('Token does not exist: ' + req.body.tokenKey));
+    } else if (!token) {
+        res.status(404).send('No token was issued with that id.');
+    } else {
+      res.status(200).send(true);
+    }
+  })
 
 
 };

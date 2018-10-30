@@ -1,20 +1,15 @@
 {
+	"variables": [],
 	"info": {
-		"_postman_id": "d8332373-4872-4b3e-b192-c6fb7424889e",
 		"name": "ChatWebApp",
+		"_postman_id": "56888dee-ab9e-f0b4-da8b-4e66915c8034",
 		"description": "ChatWepApp postman tests",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "login",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{login}}?userName=test-user&password=Pa$$W0rdCW@L",
 					"host": [
@@ -29,7 +24,14 @@
 							"key": "password",
 							"value": "Pa$$W0rdCW@L"
 						}
-					]
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
 				},
 				"description": "Login"
 			},
@@ -38,6 +40,7 @@
 		{
 			"name": "Register",
 			"request": {
+				"url": "{{register}}",
 				"method": "POST",
 				"header": [
 					{
@@ -51,12 +54,6 @@
 					"mode": "raw",
 					"raw": "{\n\t\"userName\" : \"test-user\",\n\t\"password\" : \"Pa$$W0rdCW@L\"\n}"
 				},
-				"url": {
-					"raw": "{{register}}",
-					"host": [
-						"{{register}}"
-					]
-				},
 				"description": "Register"
 			},
 			"response": []
@@ -64,6 +61,7 @@
 		{
 			"name": "AddMessage",
 			"request": {
+				"url": "{{addMessage}}",
 				"method": "POST",
 				"header": [
 					{
@@ -77,12 +75,6 @@
 					"mode": "raw",
 					"raw": "{\n\t\"userName\" : \"test-user\",\n\t\"message\" : \"This is a test of the first message to be sent!\",\n\t\"channels\" : [\"general\", \"quotes\"]\n}"
 				},
-				"url": {
-					"raw": "{{addMessage}}",
-					"host": [
-						"{{addMessage}}"
-					]
-				},
 				"description": "Add Message"
 			},
 			"response": []
@@ -90,48 +82,34 @@
 		{
 			"name": "getAllMessages",
 			"request": {
+				"url": "{{getAllMessages}}",
 				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": {
-					"raw": "{{getAllMessages}}",
-					"host": [
-						"{{getAllMessages}}"
-					]
-				}
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "getUnread",
 			"request": {
+				"url": "{{getUnreadMessages}}",
 				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": {
-					"raw": "{{getUnreadMessages}}",
-					"host": [
-						"{{getUnreadMessages}}"
-					]
-				}
+				"description": ""
 			},
 			"response": []
 		},
 		{
 			"name": "getByChannel",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{getByChannel}}?channel=general",
 					"host": [
@@ -142,8 +120,36 @@
 							"key": "channel",
 							"value": "general"
 						}
-					]
-				}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"url": "{{logout}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"tokenKey\" : \"1266a9cd15a94e5590c49d28300993ce\"\n}"
+				},
+				"description": ""
 			},
 			"response": []
 		}
