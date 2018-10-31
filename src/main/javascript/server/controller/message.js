@@ -1,5 +1,10 @@
-const Message = require('../models/message'),
-    async = require('async');
+const Message = require('../models/message');
+
+    var messageController = exports,
+      config = require('../config'),
+      async = require('async'),
+      polling = false,
+      timeout;
 
 exports.addMessage = function(req, res) {
 
@@ -80,7 +85,7 @@ exports.getMessageByChannel = function (req, res) {
 
     var channel = req.query.channel;
 
-    Message.find({"channels" : channel})
+    Message.find({"channel" : channel})
         .exec( (err, messages) => {
 
             if (err) {
@@ -91,6 +96,22 @@ exports.getMessageByChannel = function (req, res) {
                 res.json(messages);
             }
         });
+};
 
+exports.getUnreadByChannel = function (req, res) {
 
+    var channel = req.query.channel;
+
+    Message.find({$and: [{"channel" : channel}, {"read" : false}] })
+    .exec( (err, message) => {
+
+        if (err) {
+            return res.status(500).send(err);
+        } else if (message.length == 0) {
+            return res.status(404).send('No messages found for channel: ' + channel);
+        } else {
+            res.json(message);
+        }
+
+    })
 };
