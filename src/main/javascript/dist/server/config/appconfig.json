@@ -12,5 +12,10 @@
     "uri" : "mongodb://localhost:27017/chat_web_app_test",
     "user" : "",
     "pass" : ""
+  },
+  "message-polling" : {
+    "poll" : true,
+    "poll-interval": 10000,
+    "timeout": 5000
   }
 }

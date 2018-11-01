@@ -1,0 +1,27 @@
+.sidebar {
+
+
+  .right{
+    width: 200px;
+    height: 100%;
+    top: 60px;
+    right: 0px;
+    position: fixed;
+    border-left: 1px solid #ddd;
+    z-index: 1;
+    background: #f6f6f6;
+  }
+
+  .left{
+    width: 200px;
+    height: 100%;
+    top: 60px;
+    position: fixed;
+    border-left: 1px solid #ddd;
+    z-index: 1;
+    background: #f6f6f6;
+    border-right: 1px solid #ddd;
+  }
+
+
+}

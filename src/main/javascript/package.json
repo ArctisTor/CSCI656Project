@@ -17,6 +17,7 @@
     "grunt-contrib-uglify": "1.0.2",
     "grunt-contrib-watch": "1.1.0",
     "grunt-filerev": "2.3.1",
+    "grunt-sass": "1.2.1",
     "grunt-ng-annotate": "2.0.2",
     "grunt-usemin": "3.1.1",
     "load-grunt-tasks": "^4.0.0",

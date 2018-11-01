@@ -6,7 +6,7 @@ let messageSchema = new Schema(
     {
         username: String,
         message: String,
-        channels: [String],
+        channel: String,
         read: Boolean
     },
     {

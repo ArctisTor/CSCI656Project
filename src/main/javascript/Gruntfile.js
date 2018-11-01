@@ -38,10 +38,10 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 }
             },
-            // sass: {
-            //     files: ['<%= paths.app %>/styles/{,*/}*.{scss,sass}'],
-            //     tasks: ['sass:dist', 'autoprefixer']
-            // },
+            sass: {
+                files: ['<%= paths.app %>/styles/{,*/}*.{scss,sass}'],
+                tasks: ['sass:dist', 'autoprefixer']
+            },
             gruntfile: {
                 files: ['Gruntfile.js']
             },
@@ -138,15 +138,15 @@ module.exports = function (grunt) {
             }
         },
 
-        // sass: {
-        //     options: {
-        //         sourceMap: true
-        //     },
-        //     dist: {
-        //         src: '<%= paths.app %>/styles/main.scss',
-        //         dest: '.tmp/styles/main.scss'
-        //     }
-        // },
+        sass: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                src: '<%= paths.app %>/styles/main.scss',
+                dest: '.tmp/styles/main.css'
+            }
+        },
 
         // Renames files for browser caching purposes
         filerev: {
@@ -316,7 +316,7 @@ module.exports = function (grunt) {
 
         grunt.task.run([
             'clean:server',
-            // 'concurrent:server',
+            'sass:dist',
             'autoprefixer',
             'configureProxies:server',
             'connect:livereload',
@@ -343,14 +343,14 @@ module.exports = function (grunt) {
 
                 // app
                 'useminPrepare',
-                'concurrent:dist',
+                // 'concurrent:dist',
                 'autoprefixer',
-                'concat',
+                // 'concat',
                 'ngAnnotate',
                 'copy:dist',
                 'copy:dist',
                 'cssmin',
-                'uglify',
+                // 'uglify',
                 'filerev',
                 'usemin',
                 'htmlmin'
@@ -366,13 +366,13 @@ module.exports = function (grunt) {
 
                 // app
                 'useminPrepare',
-                'concurrent:dist',
+                // 'concurrent:dist',
                 'autoprefixer',
-                'concat',
+                // 'concat',
                 'ngAnnotate',
                 'copy:dist',
                 'cssmin',
-                'uglify',
+                // 'uglify',
                 'filerev',
                 'usemin',
                 'htmlmin'

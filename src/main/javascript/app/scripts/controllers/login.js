@@ -3,22 +3,26 @@
 angular.module('chatWebApp')
     .controller('LoginCtrl', function($scope, $state, $filter, $uibModal, toastr, api) {
 
-        $scope.login = function(login) {
+
+        $scope.user = {
+            username : '',
+            password: '',
+        };
+
+        $scope.login = function() {
 
             var request = {
-                userName : login.username,
-                password : login.password
-            }
+                userName : $scope.user.username,
+                password : $scope.user.password
+            };
 
-            return api.login(request).then(
-
-                function(result) {
-
-                }, function (err) {
-
-                }
-
-            )
-        }
+            return api.loginUser(request).then(
+              (result) => {
+                  console.log(result);
+              }).catch( (err) => {
+                toastr.error('Invalid user/password combination.');
+                console.log(err);
+            });
+        };
 
     });

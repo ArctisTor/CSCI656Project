@@ -7,21 +7,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <!-- CSS -->
+        <!-- build:css styles/vendor.css -->
         <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="node_modules/angular-toastr/dist/angular-toastr.css"/>
         <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css"/>
         <link rel="stylesheet" href="node_modules/ui-select/dist/select.css"/>
+        <!-- endbuild -->
 
-        <!--build:css(.tmp) styles/main.scss -->
+        <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 
-        <div class="header">
-
-            <span class="title">Chat Web App</span>
-
-        </div>
 
     </head>
 
@@ -31,27 +27,23 @@
         <!-- scripts -->
         <script src="node_modules/angular/angular.js"></script>
         <script src="node_modules/angular-cookies/angular-cookies.js"></script>
-        <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="node_modules/angular-resource/angular-resource.js"></script>
-        <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
-        <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
         <script src="node_modules/angular-toastr/dist/angular-toastr.js"></script>
         <script src="node_modules/angular-toastr/dist/angular-toastr.tpls.js"></script>
+        <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+        <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+        <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="node_modules/ui-select/dist/select.js"></script>
 
         <!-- scripts -->
         <script src="scripts/app.js"></script>
 
         <script src="scripts/services/api.js"></script>
+        <script src="scripts/services/user.js"></script>
 
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/login.js"></script>
-
-
-
+        <script src="scripts/controllers/layout.js"></script>
     </body>
-
-    </head>
-
 
 </html>
