@@ -37,7 +37,16 @@ angular.module('chatWebApp',
               controller: 'LoginCtrl'
             }
           }
-
+        })
+        .state('channel', {
+          parent: 'layout',
+          url: '/chat',
+          views: {
+            'container@layout' : {
+              templateUrl: 'views/channel/channel.html',
+              controller: 'ChannelCtrl'
+            }
+          }
         })
 
 }).config(function(toastrConfig) {

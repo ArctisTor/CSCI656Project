@@ -4,21 +4,23 @@ angular.module('chatWebApp')
 .service('user', function(api) {
 
 
-  var user, tokenKey, userService = {};
+  var user = {}, userService = {};
 
   userService.loginUser = function (params) {
 
     return api.loginUser(params).then((result) => {
-      tokenKey = result.tokenKey;
-      user = result.user;
+      user.tokenKey = result.data.tokenKey;
+      user.user = result.data.user;
+      return user;
     });
   };
 
   userService.registerUser = function (params) {
 
     return api.registerUser(params).then((result) => {
-      tokenKey = result.tokenKey;
-      user = result.user;
+      user.tokenKey = result.data.tokenKey;
+      user.user = result.data.user;
+      return user;
     });
   };
 
@@ -27,8 +29,7 @@ angular.module('chatWebApp')
     if (!tokenKey) {
       return api.logoutUser(params).then((result) => {
         if (result === true) {
-          tokenKey = null;
-          user = null;
+          user = {};
         }
       });
     }
@@ -37,7 +38,7 @@ angular.module('chatWebApp')
   };
 
   userService.isLoggedIn = function () {
-    return (!!user && !!tokenKey);
+    return (!!user.user && !!user.tokenKey);
   };
 
 

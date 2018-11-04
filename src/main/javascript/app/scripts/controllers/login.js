@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chatWebApp')
-    .controller('LoginCtrl', function($scope, $state, $filter, $uibModal, toastr, api) {
+    .controller('LoginCtrl', function($scope, $state, $filter, $uibModal, toastr, api, user) {
 
         $scope.user = {
             username : '',
@@ -18,9 +18,9 @@ angular.module('chatWebApp')
               password: $scope.user.newPass
             };
 
-            return api.registerUser(request).then(
+            return user.registerUser(request).then(
               (result) => {
-               console.log(result);
+                $state.go('channel', {user: request.user});
               }
             ).catch( (err) => {
               toastr.error('There was an error with registering the account.');
@@ -34,9 +34,9 @@ angular.module('chatWebApp')
               password : $scope.user.password
             };
 
-            return api.loginUser(request).then(
+            return user.loginUser(request).then(
               (result) => {
-                console.log(result);
+                $state.go('channel', {user: request.user});
               }).catch( (err) => {
               toastr.error('Invalid user/password combination.');
               console.log(err);
