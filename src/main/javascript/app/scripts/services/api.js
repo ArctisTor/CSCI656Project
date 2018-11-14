@@ -11,7 +11,7 @@ angular.module('chatWebApp')
   };
 
   apiService.registerUser = function(params) {
-    return $http.post(basePath+'/register', {params: params});
+    return $http.post(basePath+'/register', params);
   };
 
   apiService.logoutUser = function(params) {
@@ -19,7 +19,7 @@ angular.module('chatWebApp')
   };
 
   apiService.addMessage = function (params) {
-    return $http.post(basePath+'/message/add', {params: params});
+    return $http.post(basePath+'/message/add', params);
   };
 
   apiService.getAllMessages = function (params) {
@@ -30,7 +30,7 @@ angular.module('chatWebApp')
     return $http.get(basePath+'/message/getUnread', {params: params});
   };
 
-  apiService.getMessageByChannels = function (params) {
+  apiService.getMessageByChannel = function (params) {
     return $http.get(basePath+'/message/channel', {params: params});
   };
 

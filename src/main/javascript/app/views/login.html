@@ -1,11 +1,11 @@
 <div class="content-wrapper">
 
-  <div class="row login-form">
-    <div class="col-md-12" ng-if="!user.register">
+  <div class="row general-form">
+    <div class="col-md-9" ng-if="!user.register">
       <form class="form-horizontal" name="loginForm">
 
-        <div class="col-md-3">
-          <input class="sh-login"
+        <div class="col-md-6 general-form">
+          <input
                  id="userName"
                  ng-model="user.username"
                  type="text"
@@ -13,8 +13,8 @@
                  placeholder="UserName"
           >
         </div>
-        <div class="col-md-3">
-          <input class="sh-login"
+        <div class="col-md-6 general-form">
+          <input
                  id="password"
                  ng-model="user.password"
                  type="password"
@@ -38,8 +38,8 @@
     <div class="col-md-12" ng-if="user.register">
       <form class="form-horizontal" name="newUserForm">
 
-        <div class="col-md-6">
-          <input class="sh-login"
+        <div class="col-md-6 general-form">
+          <input
                  id="newUser"
                  ng-model="user.newUser"
                  type="text"
@@ -47,8 +47,8 @@
                  placeholder="UserName"
           >
         </div>
-        <div class="col-md-6">
-          <input class="sh-login"
+        <div class="col-md-6 general-form">
+          <input
                  id="newPass"
                  ng-model="user.newPass"
                  type="password"

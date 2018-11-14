@@ -9,9 +9,9 @@ const Message = require('../models/message');
 exports.addMessage = function(req, res) {
 
     var message = {
-        "userName" : req.body.userName,
+        "username" : req.body.username,
         "message" : req.body.message,
-        "channels" : req.body.channels,
+        "channel" : req.body.channel,
         "read" : false
     };
 

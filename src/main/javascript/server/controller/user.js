@@ -104,10 +104,10 @@ exports.register = function (req, res) {
 
 exports.logout = function(req, res) {
 
-  tokenAuth.findOneAndRemove({'tokenKey' : req.body.tokenKey}, (err, token) => {
+  tokenAuth.findOneAndRemove({'tokenKey' : req.query.tokenKey}, (err, token) => {
 
     if (err) {
-      return res(new Error('Token does not exist: ' + req.body.tokenKey));
+      return res(new Error('Token does not exist: ' + req.query.tokenKey));
     } else if (!token) {
         res.status(404).send('No token was issued with that id.');
     } else {

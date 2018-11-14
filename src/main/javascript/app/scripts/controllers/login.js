@@ -20,7 +20,7 @@ angular.module('chatWebApp')
 
             return user.registerUser(request).then(
               (result) => {
-                $state.go('channel', {user: request.user});
+                $state.go('channel');
               }
             ).catch( (err) => {
               toastr.error('There was an error with registering the account.');
@@ -36,7 +36,7 @@ angular.module('chatWebApp')
 
             return user.loginUser(request).then(
               (result) => {
-                $state.go('channel', {user: request.user});
+                $state.go('channel');
               }).catch( (err) => {
               toastr.error('Invalid user/password combination.');
               console.log(err);
