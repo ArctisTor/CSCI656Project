@@ -93,6 +93,7 @@ exports.getMessageByChannel = function (req, res) {
             } else if (messages.length == 0) {
              return res.status(404).send('No messages found for channel: ' + channel);
             } else {
+                // res.setHeader('Content-Type', req.query.headers['Content-Type']);
                 res.json(messages);
             }
         });

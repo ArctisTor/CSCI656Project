@@ -21,7 +21,11 @@ angular.module('chatWebApp')
 
   $scope.getMessageByChannel = function () {
 
-    api.getMessageByChannel({channel : $scope.channel.name}).then(function (response) {
+    var req = {
+      channel : $scope.channel.name
+    };
+
+    api.getMessageByChannel(req).then(function (response) {
       $scope.channel.messages = response.data;
     })
     .catch(function (err) {
