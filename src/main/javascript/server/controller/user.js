@@ -69,8 +69,8 @@ exports.register = function (req, res) {
 
 
     var user = {
-        "username" : req.body.params.userName,
-        "password" : encryptor.encrypt(req.body.params.password),
+        "username" : req.body.userName,
+        "password" : encryptor.encrypt(req.body.password),
         "channels" : ["general"]
     };
 

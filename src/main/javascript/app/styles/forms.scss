@@ -23,3 +23,14 @@
   max-height: 400px;
   overflow-y: auto;
 }
+
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 5px 28px;
+  margin-bottom: 1px;
+  font-size: 5px;
+  cursor: pointer;
+  text-align: center;
+}
