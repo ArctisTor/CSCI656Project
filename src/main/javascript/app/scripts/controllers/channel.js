@@ -7,11 +7,17 @@ angular.module('chatWebApp')
   $scope.isLoading = false;
 
   $scope.init = function () {
-    api.getMessageByChannel({channel : "general"}).then(function (response) {
+    var req = {
+      channel: 'general',
+      tokenKey: user.getCurrentUser().tokenKey,
+      user: user.getCurrentUser().user._id
+    };
+    api.getMessageByChannel(req).then(function (response) {
       $scope.channel.messages = response.data;
     })
     .catch(function (err) {
       // toastr.error('Failed to grab messages from channel: ' + $scope.channel.name);
+      toastr.error(err.data.message);
       console.log(err);
     }).finally(function () {
       $scope.user = user.getCurrentUser().user;
@@ -21,17 +27,21 @@ angular.module('chatWebApp')
 
   $scope.getMessageByChannel = function () {
 
+    $scope.isLoading = true;
+
     var req = {
-      channel : $scope.channel.name
+      channel : $scope.channel.name,
+      tokenKey: user.getCurrentUser().tokenKey,
+      user: user.getCurrentUser().user._id
     };
 
     api.getMessageByChannel(req).then(function (response) {
       $scope.channel.messages = response.data;
     })
     .catch(function (err) {
-      toastr.error('Failed to grab messages from channel: ' + $scope.channel.name);
+      toastr.error(err.data.message);
       console.log(err);
-    })
+    }).finally(function() {$scope.isLoading = false;})
 
   };
 
@@ -42,9 +52,11 @@ angular.module('chatWebApp')
       $scope.isLoading = true;
 
       var request = {
-        "username" : $scope.user.username,
-        "message" : $scope.channel.text,
-        "channel" : $scope.channel.name,
+        username : $scope.user.username,
+        message : $scope.channel.text,
+        channel : $scope.channel.name,
+        tokenKey: user.getCurrentUser().tokenKey,
+        user: user.getCurrentUser().user._id
       };
 
       api.addMessage(request).then( (result) => {
@@ -52,7 +64,7 @@ angular.module('chatWebApp')
         $scope.getMessageByChannel();
 
       }, (err) => {
-        toastr.error("Error adding message to channel: " + $scope.channel.name);
+        toastr.error(err.data.message);
         console.log(err);
       }).finally(function () {
         $scope.isLoading = false;
@@ -63,14 +75,7 @@ angular.module('chatWebApp')
 
   $scope.logout = function() {
 
-    // api.logoutUser(user.getCurrentUser()).then(function () {
-    //
-    //   $state.go('login');
-    //
-    // }).catch((err) => {
-    //     toastr.error('Could not logout user');
-    //     console.log(err);
-    // });
+    $scope.isLoading = true;
 
     return user.logoutUser(user.getCurrentUser()).then(
       function() {
@@ -78,7 +83,7 @@ angular.module('chatWebApp')
       }).catch( (err) => {
       toastr.error('Could not logout user');
       console.log(err);
-    });
+    }).finally(function() {$scope.isLoading = false;});
 
   };
 

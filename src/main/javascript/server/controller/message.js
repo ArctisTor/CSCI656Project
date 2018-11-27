@@ -12,7 +12,8 @@ exports.addMessage = function(req, res) {
         "username" : req.body.username,
         "message" : req.body.message,
         "channel" : req.body.channel,
-        "read" : false
+        "read" : false,
+        "submittedAt" : new Date()
     };
 
     let post = new Message(message);

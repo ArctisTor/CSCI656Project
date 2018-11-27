@@ -17,3 +17,9 @@
 .form-group {
   margin-top: 10px;
 }
+
+.list {
+  display: block;
+  max-height: 400px;
+  overflow-y: auto;
+}
