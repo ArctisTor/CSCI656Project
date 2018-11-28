@@ -9,10 +9,11 @@ const Message = require('../models/message');
 exports.addMessage = function(req, res) {
 
     var message = {
-        "userName" : req.body.userName,
+        "username" : req.body.username,
         "message" : req.body.message,
-        "channels" : req.body.channels,
-        "read" : false
+        "channel" : req.body.channel,
+        "read" : false,
+        "submittedAt" : new Date()
     };
 
     let post = new Message(message);
@@ -93,6 +94,7 @@ exports.getMessageByChannel = function (req, res) {
             } else if (messages.length == 0) {
              return res.status(404).send('No messages found for channel: ' + channel);
             } else {
+                // res.setHeader('Content-Type', req.query.headers['Content-Type']);
                 res.json(messages);
             }
         });

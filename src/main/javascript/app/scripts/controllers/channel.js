@@ -42,36 +42,45 @@ angular.module('chatWebApp')
 
     var paginationList = [];
 
-    var begin = (currentPage-1)*$scope.channel.itemsPerPage,
-      end = begin + $scope.channel.itemsPerPage;
 
-    paginationList = $scope.channel.messages.slice(0, end);
+    var width = (currentPage)*$scope.channel.itemsPerPage,
+      begin = ($scope.channel.messages.length) - width;
+
+    if (begin < 0) {
+      begin = 0;
+    }
+    var end = begin + width;
+
+    paginationList = $scope.channel.messages.slice(begin, end);
 
 
-    if (end < $scope.channel.messages.length) {
+    //can expand but can't shrink
+    if (begin > 0) {
       $scope.channel.hasNext = true;
       $scope.channel.hasPrevious = true;
-      if (begin <= 0) {
+      if (width <= $scope.channel.itemsPerPage) {
         $scope.channel.hasPrevious = false;
       }
     }
 
-    else if (end > 0) {
+    //can shrink but can't expand
+    else if (end >= width) {
+      $scope.channel.hasNext = true;
       $scope.channel.hasPrevious = true;
-      if (end >= $scope.channel.messages.length) {
+      if (width >= $scope.channel.messages.length) {
         $scope.channel.hasNext = false;
       }
     }
 
-    if (paginationList.length < $scope.channel.itemsPerPage) {
-      $scope.channel.hasPrevious = false;
-      if (paginationList.length <= $scope.channel.messages.length) {
-        $scope.channel.hasNext = false;
-      } else {
-        $scope.channel.hasNext = true;
-      }
-      paginationList = $scope.channel.messages.slice(0,$scope.channel.itemsPerPage );
-    }
+    // if (paginationList.length < $scope.channel.itemsPerPage) {
+    //   $scope.channel.hasPrevious = false;
+    //   if (paginationList.length <= $scope.channel.messages.length) {
+    //     $scope.channel.hasNext = false;
+    //   } else {
+    //     $scope.channel.hasNext = true;
+    //   }
+    //   paginationList = $scope.channel.messages.slice(0,$scope.channel.itemsPerPage );
+    // }
 
     return paginationList;
 
@@ -103,6 +112,7 @@ angular.module('chatWebApp')
 
     api.getMessageByChannel(req).then(function (response) {
       $scope.channel.messages = response.data;
+      $scope.channel.current = 1;
       $scope.channel.paginationMessages = $scope.paginateMessages($scope.channel.current);
     })
     .catch(function (err) {

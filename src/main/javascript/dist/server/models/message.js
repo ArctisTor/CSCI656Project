@@ -7,7 +7,8 @@ let messageSchema = new Schema(
         username: String,
         message: String,
         channel: String,
-        read: Boolean
+        read: Boolean,
+        submittedAt: Date
     },
     {
         timestamps: true
