@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chatWebApp')
-    .controller('LoginCtrl', function($scope, $state, $filter, $uibModal, toastr, api, user) {
+    .controller('LoginCtrl', function($scope, $state, $filter, $uibModal, toastr, api, user, socket) {
 
         $scope.user = {
             username : '',
