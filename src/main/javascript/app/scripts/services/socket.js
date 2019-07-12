@@ -2,7 +2,7 @@
 
 angular.module('chatWebApp')
 .service('socket', function ($rootScope) {
-  var socket = io.connect();
+  var socket = io.connect('http://localhost:8100');
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {

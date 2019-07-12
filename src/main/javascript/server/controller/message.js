@@ -3,10 +3,9 @@ const Message = require('../models/message');
     var messageController = exports,
       config = require('../config'),
       http = require('http'),
-      io = require('socket.io')(http),
+      io = require('socket.io'),
       async = require('async'),
-      polling = false,
-      timeout;
+      socketInfo = require('../middleware/socketInfo').socket;
 
 exports.addMessage = function(req, res) {
 
@@ -25,7 +24,8 @@ exports.addMessage = function(req, res) {
         if (err) {
             res.status(500).send(err);
         } else {
-          io.emit('successfulMessage', message);
+          // io.emit('successfulMessage', message);
+          socketInfo.emit('successfulMessage', message);
           res.json(message);
         }
 

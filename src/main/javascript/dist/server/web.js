@@ -8,7 +8,10 @@ const express = require('express'),
     log = require('./logs/log'),
     http = require('http'),
     decryptor = require('./security/decryptor-lib'),
-    migration = require('./migration/migrationRunner')
+    migration = require('./migration/migrationRunner'),
+    io = require('socket.io'),
+    socketInfo = require('./middleware/socketInfo'),
+    app = require('express')();
 config = require('./config');
 
 module.exports.start = function (callback) {
@@ -16,7 +19,7 @@ module.exports.start = function (callback) {
     /**
      * Create Express web-server.
      */
-    const app = express();
+    // const app = express();
 
     /**
      * Add Mongo/Mongoose connection stuff here
@@ -89,10 +92,25 @@ module.exports.start = function (callback) {
                 res.status(err.status || 500).json({ message: err.message })
             });
 
-            /**
+
+
+
+          /**
              * Start Express web-server.
              */
-            http.createServer(app).listen(app.get('port'), callback);
+            var server = http.createServer(app);
+
+          socketInfo.sockets(io(server));
+
+          socketInfo.get().on('connection', function(socket) {
+
+              console.log(socket);
+
+
+          });
+
+
+          server.listen(app.get('port'), callback);
 
 
         });
