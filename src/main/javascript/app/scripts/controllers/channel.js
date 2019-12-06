@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chatWebApp')
-.controller('ChannelCtrl', function($scope, $state, $filter, $uibModal, toastr, api, user, socket) {
+.controller('ChannelCtrl', function($scope, $state, $filter, $uibModal, toastr, api, user) {
 
   $scope.channel = {
     current: 1,
@@ -37,10 +37,6 @@ angular.module('chatWebApp')
       $scope.channel.name = 'general';
     });
   };
-
-  socket.on('successfulMessage', function() {
-    $scope.getMessageByChannel();
-  });
 
   $scope.paginateMessages = function(currentPage) {
 

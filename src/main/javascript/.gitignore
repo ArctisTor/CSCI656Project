@@ -3,5 +3,5 @@ bower_components
 .tmp
 downloads
 *.pid
-logs/*.log
+dist
 package-lock.json

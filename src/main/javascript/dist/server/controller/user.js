@@ -7,13 +7,13 @@ exports.getUser = function(req, res, next) {
 
     User.findById(req.query.userId, function(err, user) {
 
-       if (err) {
-           return next(new Error('User does not exist: ' + req.query.userId));
-       } else if (!user) {
-           res.status(404).send();
-       } else {
-           res.json(user);
-       }
+        if (err) {
+            return next(new Error('User does not exist: ' + req.query.userId));
+        } else if (!user) {
+            res.status(404).send();
+        } else {
+            res.json(user);
+        }
 
     });
 };
@@ -34,43 +34,39 @@ exports.login = function(req, res) {
         },
         (err, user) => {
 
-        if (err) {
-            res.status(500).send(err);
-        } else if (!user){
-            res.status(404).send('Invaild username/password combination');
-        }  else {
-          let token = new tokenAuth({
-            "userId" : user._id,
-            "tokenKey" : uuid().replace(/-/g, '')
-          });
-
-          token.save((err, t) => {
-
             if (err) {
-              res.status(500).send(err);
-            } else {
-              res.setHeader('Content-Type', {
-                user : user,
-                tokenKey: t.tokenKey
-              });
-              res.json({
-                user : user,
-                tokenKey: t.tokenKey
-              });
+                res.status(500).send(err);
+            } else if (!user){
+                res.status(404).send('Invaild username/password combination');
+            }  else {
+                let token = new tokenAuth({
+                    "userId" : user._id,
+                    "tokenKey" : uuid().replace(/-/g, '')
+                });
+
+                token.save((err, t) => {
+
+                    if (err) {
+                        res.status(500).send(err);
+                    } else {
+                        res.json({
+                            user : user,
+                            tokenKey: t.tokenKey
+                        });
+                    }
+
+                });
             }
 
-          });
-        }
-
-    });
+        });
 };
 
 exports.register = function (req, res) {
 
 
     var user = {
-        "username" : req.body.userName,
-        "password" : encryptor.encrypt(req.body.password),
+        "username" : req.body.params.userName,
+        "password" : encryptor.encrypt(req.body.params.password),
         "channels" : ["general"]
     };
 
@@ -85,24 +81,20 @@ exports.register = function (req, res) {
         } else {
 
             let token = new tokenAuth({
-              "userId" : user._id,
-              "tokenKey" : uuid().replace(/-/g, '')
+                "userId" : user._id,
+                "tokenKey" : uuid().replace(/-/g, '')
             });
 
             token.save((err, t) => {
 
-              if (err) {
-                res.status(500).send(err);
-              } else {
-                res.setHeader('Content-Type', {
-                  user : user,
-                  tokenKey: t.tokenKey
-                });
-                res.json({
-                  user : user,
-                  tokenKey: t.tokenKey
-                });
-              }
+                if (err) {
+                    res.status(500).send(err);
+                } else {
+                    res.json({
+                        user : user,
+                        tokenKey: t.tokenKey
+                    });
+                }
 
             });
         }
@@ -112,16 +104,16 @@ exports.register = function (req, res) {
 
 exports.logout = function(req, res) {
 
-  tokenAuth.findOneAndRemove({'tokenKey' : req.query.tokenKey}, (err, token) => {
+    tokenAuth.findOneAndRemove({'tokenKey' : req.query.tokenKey}, (err, token) => {
 
-    if (err) {
-      return res(new Error('Token does not exist: ' + req.query.tokenKey));
-    } else if (!token) {
-        res.status(404).send('No token was issued with that id.');
-    } else {
-      res.status(200).send(true);
-    }
-  })
+        if (err) {
+            return res(new Error('Token does not exist: ' + req.query.tokenKey));
+        } else if (!token) {
+            res.status(404).send('No token was issued with that id.');
+        } else {
+            res.status(200).send(true);
+        }
+    })
 
 
 };

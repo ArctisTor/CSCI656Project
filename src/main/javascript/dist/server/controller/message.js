@@ -1,11 +1,10 @@
 const Message = require('../models/message');
 
-    var messageController = exports,
-      config = require('../config'),
-      http = require('http'),
-      io = require('socket.io'),
-      async = require('async'),
-      socketInfo = require('../middleware/socketInfo').socket;
+var messageController = exports,
+    config = require('../config'),
+    async = require('async'),
+    polling = false,
+    timeout;
 
 exports.addMessage = function(req, res) {
 
@@ -13,8 +12,7 @@ exports.addMessage = function(req, res) {
         "username" : req.body.username,
         "message" : req.body.message,
         "channel" : req.body.channel,
-        "read" : false,
-        "submittedAt" : new Date()
+        "read" : false
     };
 
     let post = new Message(message);
@@ -24,9 +22,7 @@ exports.addMessage = function(req, res) {
         if (err) {
             res.status(500).send(err);
         } else {
-          // io.emit('successfulMessage', message);
-          socketInfo.emit('successfulMessage', message);
-          res.json(message);
+            res.json(message);
         }
 
     });
@@ -46,7 +42,7 @@ exports.getAllMessage = function(req, res) {
                 res.json(messages);
             }
 
-    });
+        });
 
 };
 
@@ -95,9 +91,8 @@ exports.getMessageByChannel = function (req, res) {
             if (err) {
                 return res.status(500).send(err);
             } else if (messages.length == 0) {
-             return res.status(404).send('No messages found for channel: ' + channel);
+                return res.status(404).send('No messages found for channel: ' + channel);
             } else {
-                // res.setHeader('Content-Type', req.query.headers['Content-Type']);
                 res.json(messages);
             }
         });
@@ -108,15 +103,15 @@ exports.getUnreadByChannel = function (req, res) {
     var channel = req.query.channel;
 
     Message.find({$and: [{"channel" : channel}, {"read" : false}] })
-    .exec( (err, message) => {
+        .exec( (err, message) => {
 
-        if (err) {
-            return res.status(500).send(err);
-        } else if (message.length == 0) {
-            return res.status(404).send('No messages found for channel: ' + channel);
-        } else {
-            res.json(message);
-        }
+            if (err) {
+                return res.status(500).send(err);
+            } else if (message.length == 0) {
+                return res.status(404).send('No messages found for channel: ' + channel);
+            } else {
+                res.json(message);
+            }
 
-    })
+        })
 };

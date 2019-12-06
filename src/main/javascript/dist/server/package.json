@@ -9,19 +9,19 @@
     "express": "^4.16.4",
     "gridfs-stream": "1.1.1",
     "mongoose": "5.1.6",
-    "morgan": "1.8.2",
+    "morgan": "^1.8.2",
     "nock": "9.0.13",
     "path": "0.12.7",
     "pm2": "2.5.0",
     "request": "2.81.0",
     "template-tal": "0.1.5",
-    "uuid" : "^3.3.2",
+    "uuid": "^3.3.2",
     "winston": "2.3.1",
     "winston-logrotate": "1.0.1",
     "xml-crypto": "0.8.5",
     "xml2js": "0.4.17"
   },
   "engines": {
-    "node": ">=6.9.5"
+    "node": ">=10.16.0"
   }
 }

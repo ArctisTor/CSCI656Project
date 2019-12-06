@@ -1,6 +1,8 @@
 // Generated on 2014-09-23 using generator-angular 0.9.5
 'use strict';
 
+const sass = require('node-sass');
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -140,6 +142,7 @@ module.exports = function (grunt) {
 
         sass: {
             options: {
+                implementation: sass,
                 sourceMap: true
             },
             dist: {
@@ -175,6 +178,43 @@ module.exports = function (grunt) {
                         post: {}
                     }
                 }
+            }
+        },
+
+        concat: {
+            generated: {
+                files: [
+                    {
+                        dest: '.tmp/concat/js/app.js',
+                        src: ['<%= paths.app %>/scripts/{,*/}*.js']
+                    },
+                    // {
+                    //     // src: ['<%= paths.app %>/node_modules/{,*/}*.js'],
+                    //     src: [
+                    //         '<%= paths.app %>/node_modules/angular/*.js',
+                    //         '<%= paths.app %>/node_modules/angular-animate/*.js'
+                    //     ],
+                    //     dest: '.tmp/concat/js/vendor.js'
+                    // }
+                ]
+            }
+        },
+        uglify: {
+            generated: {
+                files: [
+                    // {
+                    //     dest: 'dist/public/scripts/script.js',
+                    //     src: [ '.tmp/concat/js/app.js' ]
+                    // },
+                    // {
+                    //     dest: 'dist/public/scripts/vendor.js',
+                    //     src: [ '.tmp/concat/js/vendor.js' ]
+                    // }
+                    {
+                        src: ['.tmp/concat/styles/main.css'],
+                        dest: 'dist/public/styles/main.css'
+                    }
+                ]
             }
         },
 
@@ -260,7 +300,7 @@ module.exports = function (grunt) {
                     dest: '<%= paths.serverDist %>',
                     src: [
                         '**',
-                        '!**/*.log',
+                        '!**/*.logs',
                         '!node_modules/**',
                         '!security/keys/*',
                         '!logs/*'
@@ -274,6 +314,37 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= paths.server %>/node_modules',
                     dest: '<%= paths.serverDist %>/node_modules',
+                    src: [
+                        '**/*.js',
+                        '**/*.json',
+                        '**/*.wsf',  //Specifically for regedit
+                        '**/*.vbs',  //Specifically for regedit
+                        '!**/example/**',
+                        '!**/examples/**',
+                        '!**/Gruntfile.js'
+                    ]
+                }]
+            },
+            app: {
+                files: [{
+                    // App script files
+                    expand: true,
+                    cwd: '<%= paths.app %>',
+                    dest: '<%= paths.appDist %>',
+                    src: [
+                        '**',
+                        '!node_modules/**',
+                        '!styles/**'
+                    ]
+                }]
+            },
+            appdeps: {
+                files: [{
+                    // Node App dependencies
+                    // Copy only necessary files
+                    expand: true,
+                    cwd: '<%= paths.app %>/node_modules',
+                    dest: '<%= paths.appDist %>/node_modules',
                     src: [
                         '**/*.js',
                         '**/*.json',
@@ -324,11 +395,6 @@ module.exports = function (grunt) {
         ]);
     });
 
-    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve:' + target]);
-    });
-
     grunt.registerTask('build', function (target) {
         if (target === 'lowsec') {
             grunt.log.writeln('Running lowsec build with reduced capabilities.');
@@ -343,7 +409,6 @@ module.exports = function (grunt) {
 
                 // app
                 'useminPrepare',
-                // 'concurrent:dist',
                 'autoprefixer',
                 // 'concat',
                 'ngAnnotate',
@@ -366,7 +431,6 @@ module.exports = function (grunt) {
 
                 // app
                 'useminPrepare',
-                // 'concurrent:dist',
                 'autoprefixer',
                 // 'concat',
                 'ngAnnotate',
@@ -383,6 +447,37 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'build'
     ]);
+
+
+    grunt.registerTask('QuickBuild', function (target) {
+
+        grunt.task.run([
+            'clean:dist',
+            'sass:dist',
+
+            // server
+            'copy:server',
+            'auto_install',
+            'copy:serverdeps',
+
+
+            //app
+            'useminPrepare',
+            'autoprefixer',
+            'ngAnnotate',
+            'copy:app',
+            'copy:dist',
+            // 'concat',
+            'copy:appdeps',
+            'cssmin',
+            'uglify',
+            'filerev',
+            'usemin',
+            'htmlmin',
+
+        ]);
+
+    });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
 };

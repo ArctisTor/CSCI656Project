@@ -9,8 +9,6 @@ const express = require('express'),
     http = require('http'),
     decryptor = require('./security/decryptor-lib'),
     migration = require('./migration/migrationRunner'),
-    io = require('socket.io'),
-    socketInfo = require('./middleware/socketInfo'),
     app = require('express')();
 config = require('./config');
 
@@ -98,19 +96,7 @@ module.exports.start = function (callback) {
           /**
              * Start Express web-server.
              */
-            var server = http.createServer(app);
-
-          socketInfo.sockets(io(server));
-
-          socketInfo.get().on('connection', function(socket) {
-
-              console.log(socket);
-
-
-          });
-
-
-          server.listen(app.get('port'), callback);
+          http.createServer(app).listen(app.get('port'), callback);
 
 
         });
