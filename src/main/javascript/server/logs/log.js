@@ -3,7 +3,7 @@ const {transports, createLogger, format} = require('winston');
 var options = {
     file: {
         level: 'info',
-        filename: __dirname+ '/../logs/mccat.log',
+        filename: __dirname+ '/../logs/chat.log',
         handleExceptions: true,
         maxsize: 5242880, // 5MB
         maxFiles: 5,
